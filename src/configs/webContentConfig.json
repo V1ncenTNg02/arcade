@@ -1,0 +1,6 @@
+{
+    "gameSection":[
+        {"src":"../testAssets/test1.png", "name":"Germs","description":"This is the game description, used for testing and visualization"},
+        {"src":"../../Pages/testAssets/test2.png", "name":"Toms","description":"This is the game description, used for testing and visualization"}
+    ]
+}

@@ -1,0 +1,328 @@
+@import '../../variables.module';
+
+@mixin btn-border-drawing($color: $success-color, $hover: $black, $width: 100px, $vertical: top, $horizontal: left, $duration: 0.25s) {
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration calc($duration/3);
+  position: relative;
+  padding: 10px;
+  min-width: 300px;
+
+  @media screen and (max-width: $breakpoint-xl) {
+    overflow-y: auto !important;
+    min-width: 100px;
+  }
+
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    #{$vertical}: 0;
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == 'left', 'right', 'left');
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+
+  &::after {
+    $v-side: if($vertical == 'top', 'bottom', 'top');
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+
+  &:hover {
+    color: $hover;
+
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition:
+        border-color 0s,
+        width $duration,
+        height $duration;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      transition-delay: 0s, 0s, $duration;
+    }
+
+    &::after {
+      transition-delay: 0s, $duration, 0s;
+    }
+  }
+}
+
+.arcadeContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  background-color: $background-color;
+  font: 700 1.2rem $font-family;
+  color: $font-color;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.arcadeHeader {
+  flex: 1;
+  color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 5px;
+}
+
+.arcadeHeader hr {
+  border-color: $border-color;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.arcadeHeader p {
+  color: $font-color;
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.arcadeContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+
+  @media screen and (max-width: $breakpoint-2xl) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.arcadeSideBlock {
+  text-align: center;
+  max-height: 800px;
+  min-width: 350px;
+  border: 0.35rem solid $border-color;
+
+  @media screen and (max-width: $breakpoint-2xl) {
+    order: 2;
+    height: auto;
+    overflow-x: hidden;
+  }
+}
+
+.arcadeFrameContainer {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1000px;
+  height: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: $breakpoint-xl) {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.ticketInfoContainer {
+  position: absolute;
+  top: 0px;
+}
+
+.arcadeFilter {
+  min-width: 650px;
+  min-height: 500px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.486);
+  background-blend-mode: overlay;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media screen and (max-width: $breakpoint-xl) {
+    min-width: 250px;
+    min-height: 180px;
+    max-width: 250px;
+    max-height: 180px;
+  }
+}
+
+.arcadeMenuContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  background: $background-color;
+  animation: corner 3s;
+  border-radius: 50%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+  @media screen and (max-width: $breakpoint-xl) {
+    width: 175px;
+    height: 175px;
+  }
+}
+
+.arcadeGameContainer {
+  max-width: 680px;
+  margin-left: -20px;
+  margin-top: -20px;
+  position: relative;
+  order: 1;
+}
+
+.arcadeMenuContainerForTicket {
+  width: 430px;
+  height: 430px;
+}
+
+.arcadeWeb3Button {
+  width: 100px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.5;
+  font: 700 1.2rem $font-family;
+  padding: 5em;
+  letter-spacing: 0.05rem;
+}
+
+.desktopOnlyWrapper {
+  width: 100px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:focus {
+  outline: 2px dotted $secondary-color;
+}
+
+.drawBorder {
+  @include btn-border-drawing($success-color, $primary-color, 2px, bottom, right);
+  font-size: 24px;
+  background: $background-color;
+  cursor: pointer;
+}
+
+.arcadeDescription {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  max-width: 80vw;
+  padding: 10px;
+  color: $font-color;
+}
+
+.arcadeDescription hr {
+  border-color: $border-color;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.arcadeDescription p {
+  margin-top: 10px;
+  font-size: smaller;
+}
+
+$s: calc(100% / 8);
+$t: 0.001%;
+
+@keyframes corner {
+  #{$s * 0} {
+    border-top-left-radius: 1% 50%;
+  }
+  #{$s * 1} {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+  }
+  #{$s * 2} {
+    border-top-right-radius: 1% 50%;
+  }
+  #{$s * 2 + $t} {
+    border-top-right-radius: 50% 1%;
+  }
+  #{$s * 3} {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+  #{$s * 4} {
+    border-bottom-right-radius: 50% 1%;
+  }
+  #{$s * 4 + $t} {
+    border-bottom-right-radius: 1% 50%;
+  }
+  #{$s * 5} {
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+  #{$s * 6} {
+    border-bottom-left-radius: 1% 50%;
+  }
+  #{$s * 6 + $t} {
+    border-bottom-left-radius: 50% 1%;
+  }
+  #{$s * 7} {
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+  }
+  #{$s * 8} {
+    border-top-left-radius: 50% 1%;
+  }
+}
+
+@keyframes rotateThis {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.mobileInfoContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 50px;
+  gap: 20px;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+  }
+}

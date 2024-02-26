@@ -1,0 +1,107 @@
+@import '../../variables.module';
+@import url('https://fonts.googleapis.com/css?family=Raleway:400');
+
+:local(:root) {
+  --d: 3000ms;
+  --angle: 90deg;
+  --gradX: 100%;
+  --gradY: 50%;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: '<percentage>';
+  initial-value: 50%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: true;
+}
+
+.notFoundContainer {
+  height: 100vh;
+  width: 100vw;
+  background-color: $background-color;
+  color: $font-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15%;
+
+  .errorImage {
+    max-width: 800px;
+    @media screen and (max-width: $breakpoint-md) {
+      max-width: 500px;
+    }
+  }
+
+  .notFoundSection {
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: $font-color;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      border: 0.35rem solid;
+      padding: 20px;
+      font-size: 40px;
+      border-image: conic-gradient(from var(--angle), $background-color, $fail-color 0.1turn, $fail-color 0.15turn, $background-color 0.25turn) 30;
+      animation: borderRotate var(--d) linear infinite forwards;
+      color: $fail-color;
+
+      &:hover {
+        border-image: conic-gradient(from var(--angle), $background-color, $success-color 0.1turn, $success-color 0.15turn, $background-color 0.25turn) 30;
+        color: $success-color;
+      }
+
+      @media screen and (max-width: $breakpoint-md) {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@keyframes borderRotate {
+  100% {
+    --angle: 420deg;
+  }
+}
+
+@keyframes borderRadial {
+  20% {
+    --gradX: 100%;
+    --gradY: 50%;
+  }
+  40% {
+    --gradX: 100%;
+    --gradY: 100%;
+  }
+  60% {
+    --gradX: 50%;
+    --gradY: 100%;
+  }
+  80% {
+    --gradX: 0%;
+    --gradY: 50%;
+  }
+  100% {
+    --gradX: 50%;
+    --gradY: 0%;
+  }
+}

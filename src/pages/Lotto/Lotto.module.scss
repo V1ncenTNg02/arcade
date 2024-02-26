@@ -1,0 +1,234 @@
+@import "../../variables.module.scss";
+
+.drawBox {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background-color: $background-color;
+}
+
+.lottoBoxContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.bgLight {
+  background: url('../../assets/light.png') center no-repeat;
+  width: 500px;
+  height: 500px;
+  z-index: 1;
+  animation: pic-rotate 10s infinite linear;
+}
+
+.closeBox {
+  background: url('../../assets/chest.png') 0 0 no-repeat;
+  background-size: 320px auto;
+  width: 320px;
+  height: 138px;
+  z-index: 2;
+  position: absolute;
+  top: 100px;
+}
+
+.boxOpen {
+  background: url('../../assets/chest.png') 0 -139px no-repeat;
+  background-size: 320px auto;
+  width: 320px;
+  height: 138px;
+  z-index: 2;
+  position: absolute;
+  top: 100px;
+}
+
+.picShake {
+  animation: pic-shake 1.2s infinite linear;
+}
+
+.boxMsg {
+  width: 80%;
+  height: auto;
+  margin: 0px auto;
+  border: 5px solid $primary-color;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  top: -100px;
+  box-shadow: 1px 1px 3px $border-color;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 5;
+}
+
+.maxBtn{
+  background-color: $primary-color;
+  color: $navbar-color;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50%;
+  outline: none;
+  padding: 5px;
+}
+
+.hide {
+  display: none;
+}
+
+.boxMsgTitle {
+  text-align: center;
+  margin: 0px 0px 10px 0px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.errorText {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: $fail-color;
+  text-align: center;
+  z-index: 10;
+  margin-bottom: 10px;
+}
+
+.boxMsgCongent {
+  line-height: 28px;
+  margin: 0px 0px 10px 0px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: $navbar-color;
+}
+
+.boxMsgTip {
+  font-size: 12px;
+  color: #333333;
+}
+
+.boxMsgOperat {
+  text-align: center;
+}
+
+.buttonWrapper{
+  position: absolute;
+  z-index: 10;
+  top: 300px;
+}
+
+.drawBtn {
+  border-radius: 5px;
+  background-color: $primary-color;
+  padding: 5px;
+  color: $navbar-color;
+  font-size: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  min-width: 200px;
+  box-shadow: 1px 1px 3px $border-color;
+}
+
+.drawBtn:disabled{
+  background-color: $border-color;
+  color: #fff;
+  pointer-events: none;
+}
+
+ .prizeInfoSection {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   flex-shrink: 0;
+   gap: 10px;
+   padding: 40px 0px;
+   text-align: center;
+   z-index: 9;
+   margin-top: 20px;
+   color: $font-color;
+
+   .h2 {
+     font-size: 40px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: normal;
+   }
+}
+
+@keyframes pic-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes pic-shake {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  10%,
+  20% {
+    -webkit-transform: scale(0.9) rotate(-3deg);
+  }
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+  }
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale(1.1) rotate(-3deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(0);
+  }
+}
+
+
+.participateInputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px $border-color;
+  border: 1px solid $border-color;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+
+.participateInput{
+  outline: none;
+  background-color: transparent;
+  color: white;
+  padding: 5px;
+  border: none;
+  font-family: $font-family;
+  font-size: 18px;
+}
+
+.participateBtn{
+  border-radius: 5px;
+  background-color: $primary-color;
+  padding: 5px;
+  color: $navbar-color;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  min-width: 115px;
+  box-shadow: 1px 1px 3px $border-color;
+}
+
+.participateBtn:disabled{
+  background-color: $border-color;
+  color: #fff;
+  pointer-events: none;
+}

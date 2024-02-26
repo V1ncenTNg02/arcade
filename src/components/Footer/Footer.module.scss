@@ -1,0 +1,110 @@
+@import '../../variables.module.scss';
+
+.footer {
+  width: 100%;
+  background: linear-gradient($background-color, $navbar-color);
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 0%;
+  position: absolute;
+  bottom: -75px;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+  .pictures {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+
+    .logoImg {
+      width: 25%;
+      height: auto;
+
+      @media screen and (max-width: $breakpoint-lg) {
+        width: 50%;
+      }
+    }
+    @media screen and (max-width: $breakpoint-lg) {
+      width: 70%;
+      gap: 20px;
+    }
+    .icons {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+
+      @media screen and (max-width: $breakpoint-lg) {
+        gap: 20px;
+      }
+
+      .icon {
+        color: $fail-color;
+        width: auto;
+      }
+    }
+    @media screen and (max-width: $breakpoint-lg) {
+      .icons {
+        width: 100%;
+        height: 100%;
+        .icon {
+          height: 50%;
+          width: auto;
+        }
+      }
+    }
+  }
+  .rightFooter {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .textContainer {
+      width: auto;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .intextPicture {
+        width: auto;
+        height: 30%;
+      }
+      .text {
+        padding-top: 5px;
+        height: 60%;
+        width: 100%;
+        font-size: small;
+        color: white;
+        text-align: center;
+      }
+    }
+    @media screen and (max-width: $breakpoint-md) {
+      width: 60%;
+      .textContainer {
+        display: none;
+      }
+    }
+    .logoImg {
+      width: auto;
+      height: 100%;
+    }
+    @media screen and (max-width: $breakpoint-md) {
+      height: 80%;
+    }
+  }
+}

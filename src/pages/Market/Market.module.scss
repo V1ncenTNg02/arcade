@@ -1,0 +1,284 @@
+@import "../../variables.module.scss";
+
+.outerLayer{
+    width: 100%vw;
+    background-color: $background-color;
+}
+
+.grid{
+    max-width: fit-content;
+    margin: auto;
+    color: $font-color;
+    display: grid;
+    padding-top: 50px;
+    min-height: 95vh;
+    grid-template-columns: repeat(10, 1fr);
+
+    .leftSection{
+        grid-column: span 3;
+
+        .assetSection{
+            border-bottom: 5px solid $font-color;
+            border-right: 5px solid $font-color;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-shrink: 0;
+            gap: 10px;
+            padding: 40px 0px;
+            text-align: center;
+            z-index: 9;
+
+            .h2{
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+
+            .h3{
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+
+            .indicator{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .p{
+                color: #7DDE92;
+                text-align: center;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+
+        .filterSection{
+            display: flex;
+            flex-direction: column;
+            padding: 40px 0;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            .filterWrapper{
+                width:80%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .h2{
+                    color: #FFC906;
+                    text-align: center;
+                    font-size: 32px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                }
+
+                .dropdownContainer{
+                    background-color: $font-color;
+                    width: 80%;
+                    border-radius: 20px;
+                    margin: 20px 0;
+                    position: relative;
+                    font-size: 16px;
+                    font-weight:700;
+                    .selectSection{
+                        width: 100%;
+                        color:$border-color;
+                        padding:10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .selectSectionOpen{
+                        color: font-color;
+                        width: 100%;
+                        border-top-right-radius: 20px;
+                        border-top-left-radius: 20px;
+                        padding:10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: $border-color;
+                    }
+                    .items{
+                        position: absolute;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        margin-top:0%;
+                        left: 0;
+                        z-index: 1000; 
+                        color:$border-color;
+                        border-bottom-right-radius: 20px;
+                        border-bottom-left-radius: 20px;
+                        overflow: hidden;
+                        .selectItem{
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            padding: 5px;
+                            background-color: $font-color;
+                        }
+                        .selectItem:hover{
+                            background-color: $border-color;
+                            color: $font-color;
+                        }
+                    }
+                }
+
+                .optionList{
+                    width: 80%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+
+                    .optionItem{
+                        display: block;
+                        position: relative;
+                        padding-left: 35px;
+                        margin-bottom: 12px;
+                        cursor: pointer;
+                        font-size: 22px;
+                    }
+
+                    input{
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+                    }
+
+                    .checkMark {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 25px;
+                        width: 25px;
+                        background-color: $font-color;
+                      }
+
+                    .checkMark:hover{
+                        background-color: $border-color;
+                    }
+
+                    input:checked ~ .checkMark{
+                        background-color: $navbar-color;
+                    }
+                    
+                    .checkmark:after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+                      }
+
+                      input:checked ~ .checkmark:after {
+                        display: block;
+                      }
+                
+                      .checkmark:after {
+                        left: 9px;
+                        top: 5px;
+                        width: 5px;
+                        height: 10px;
+                        border: solid white;
+                        border-width: 0 3px 3px 0;
+                        transform: rotate(45deg);
+                      }
+
+                    .optionLabel{
+                        width: 80%;
+                        color: #BEBEBE;
+                        text-align: center;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                    }
+                }
+            }
+        }
+    }
+
+    .rightSection{
+        grid-column: span 7;
+        margin-left: -5px;
+
+        .NftsContainer{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 49px;
+            border-left: 5px solid $font-color;
+            border-bottom: 5px solid $font-color;
+            padding: 13px;
+            z-index: 10;
+            max-height: 30vh;
+            overflow: auto;
+        }
+    }
+}
+
+.NftCard{
+    width: fit-content;
+    padding: 9px;
+    .image{
+        width: 250px;
+        height: 160px;
+    }
+
+    .infoSection{
+        max-width: 253px;
+        display: flex;
+        justify-content: space-between;
+
+        .p{
+            color: #FFF;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
+        }
+    }
+}
+
+.buyButton{
+    border-radius: 10px;
+    background: #7D7A92;
+    color: greenyellow;
+    width: 104px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.sellButton{
+    border-radius: 10px;
+    background: #7D7A92;
+    color: #F64740;
+    width: 104px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

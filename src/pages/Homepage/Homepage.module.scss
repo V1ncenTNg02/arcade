@@ -1,0 +1,125 @@
+@import '../../variables.module';
+
+.homepageContainer {
+  background-color: $background-color;
+  color: $primary-color;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 20px;
+
+  .homepageSection {
+    width: 95%;
+    margin: 0 auto;
+    height: auto;
+    flex-direction: column;
+
+    .textEffectWrapper,
+    .text {
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+    }
+
+    .textEffectWrapper {
+      --spotlight-color: orange;
+      overflow: hidden;
+      position: relative;
+
+      /* Shimmer animation */
+      &::before {
+        animation: shimmer 10s infinite linear;
+        background:
+          radial-gradient(circle, var(--spotlight-color), transparent 25%) 0 0 / 25% 25%,
+          radial-gradient(circle, var(--spotlight-color), black 25%) 50% 50% / 12.5% 12.5%;
+        inset-block-start: -100%;
+        inset-inline-start: -100%;
+        mix-blend-mode: color-dodge;
+        z-index: 3;
+      }
+
+      &::after {
+        backdrop-filter: blur(1px) brightness(90%) contrast(150%);
+        z-index: 2;
+      }
+    }
+
+    @keyframes shimmer {
+      100% {
+        transform: translate3d(50%, 50%, 0);
+      }
+    }
+
+    .text {
+      --background-color: black;
+      --text-color: white;
+
+      color: transparent;
+      text-shadow:
+        0 0 0.02em var(--background-color),
+        0 0 0.02em var(--text-color),
+        0 0 0.02em var(--text-color),
+        0 0 0.02em var(--text-color);
+
+      /* Improve contrast of outline */
+      &::before {
+        backdrop-filter: blur(0.013em) brightness(400%);
+        z-index: 1;
+      }
+
+      /* Add text color */
+      &::after {
+        background: linear-gradient(90deg, $primary-color, $navbar-color);
+        mix-blend-mode: multiply;
+        z-index: 2;
+      }
+    }
+
+    h1 {
+      --font-size: clamp(100px, 0.25rem + 15vw, 60px);
+
+      font:
+        300 var(--font-size) / 1 $font-family,
+        sans-serif;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0;
+
+      &:empty,
+      &:focus {
+        border: 2px dotted white;
+        min-width: 1ch;
+        outline-offset: 5px;
+      }
+
+      @media screen and (max-width: $breakpoint-xl) {
+        --font-size: clamp(40px, 0.25rem + 15vw, 60px);
+      }
+    }
+
+    hr {
+      width: 100%;
+      height: 5px;
+      background-color: lighten($background-color, 20%);
+      border: none;
+    }
+
+    .homepageCards {
+      width: 100%;
+      padding: 10px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+
+      @media screen and (max-width: $breakpoint-xl) {
+        grid-template-columns: 1fr
+      }
+    }
+  }
+}

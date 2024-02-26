@@ -1,0 +1,259 @@
+@import "../../variables.module.scss";
+
+.profileContainer {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding: 20px;
+  background-color: $background-color;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    padding: 10px;
+  }
+}
+
+.columnContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+  justify-content: center;
+  row-gap: 10px;
+  grid-gap: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 100%;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.userInfoSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gameInfoSection {
+  height: 550px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.lottoClaimButton{
+  border-radius: 5px;
+  background-color: $primary-color;
+  padding: 5px;
+  color: $navbar-color;
+  font-size: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 10;
+  min-width: 200px;
+  box-shadow: 1px 1px 3px $border-color;
+}
+
+.lottoClaimButton:disabled {
+  background-color: $border-color;
+  color: #fff;
+  pointer-events: none;
+}
+
+.avatar{
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.userAddressSection{
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.gameInfoColumnContainer{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.gameHeader{
+  font-size: 40px;
+  font-weight: bold;
+  color: $primary-color;
+  text-align: center;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    font-size: 35px;
+  }
+}
+
+.gameInfoContainer{
+  border-radius: 5px;
+  border-color: $border-color;
+  box-shadow: 1px 1px 3px $border-color;
+  padding: 20px;
+  width: 100%;
+  --b: 5px;
+  --w: 30px;
+  margin: 10px 0;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    width: 90%;
+  }
+}
+
+.gameInfoContainer:hover{
+  background: linear-gradient(45deg, $primary-color, $navbar-color);
+
+  h2 {
+    font-weight: bold;
+    color: $background-color;
+  }
+
+  p {
+    color: $background-color;
+  }
+}
+
+.gameInfoHeader{
+  font-size: 25px;
+  font-weight: bold;
+  color: $font-color;
+  text-align: center;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    font-size: 20px;
+  }
+}
+
+.gameInfoText {
+  font-weight: bold;
+  color: $font-color;
+  text-align: left;
+  font-size: 18px;
+}
+
+.gameLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2px;
+  position: relative;
+  img {
+    width: 70%;
+    padding: 5%;
+    @media screen and (max-width: $breakpoint-md) {
+      width: 100%;
+    }
+  }
+ }
+
+ .statisticsWrapper{
+  display: flex;
+  width: 100%;
+  margin: 5px 0;
+  align-items: center;
+  justify-content: space-between;
+ }
+
+.connectBtn {
+  border-radius: 5px;
+  background-color: $primary-color;
+  padding: 5px;
+  color: $navbar-color;
+  font-size: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  min-width: 300px;
+  box-shadow: 1px 1px 3px $border-color;
+}
+
+.gamePlayButton {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  margin: 0 auto;
+  min-height: 40px;
+  padding: 0.5rem 5rem;
+  text-decoration: none;
+  border-radius: 0rem;
+  color: $font-color;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: darken($navbar-color, 15%);
+    border-radius: 5rem;
+    z-index: -2;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: $navbar-color;
+    transition: all 0.3s;
+    border-radius: 10rem;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: $primary-color;
+
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+.skeletonLoading {
+  display: flex;
+  width: auto;
+  height: 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}

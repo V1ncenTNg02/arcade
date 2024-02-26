@@ -1,0 +1,259 @@
+@import '../../variables.module.scss';
+
+.page {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-family: $font-family;
+  overflow: hidden;
+  .pricePage {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    .contentWrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      @media screen and (max-width: $breakpoint-xl) {
+        flex-direction: column;
+      }
+      .rankSection {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width: $breakpoint-xl) {
+          align-items: center;
+          width: 100%;
+          padding-bottom: 5%;
+        }
+        .title {
+          font-size: 64px;
+          font-style: italic;
+          font-family: Chakra Petch;
+          color: #ffc906;
+          font-weight: 700;
+        }
+        .poolInfoWrapper {
+          min-height: 500px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+
+        .poolInfo {
+          padding-top: 10%;
+          padding-bottom: 10%;
+          font-size: 32px;
+          font-weight: 400;
+          text-align: center;
+          @media screen and (max-width: $breakpoint-lg) {
+            font-size: 24px;
+          }
+          .timeSection {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+        }
+        .rankTable {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 0;
+          font-size: 24px;
+          @media screen and (max-width: $breakpoint-xl) {
+            align-items: center;
+          }
+          .dataRow {
+            display: flex;
+            width: 80%;
+            flex-direction: row;
+            padding-top: 2%;
+            gap: 3%;
+            justify-content: center;
+            font-weight: 500;
+            .data {
+              display: flex;
+              justify-content: center;
+              width: 20%;
+              min-width: fit-content;
+            }
+            .dataGreen {
+              display: flex;
+              justify-content: center;
+              width: 20%;
+              min-width: fit-content;
+              color: #7dde92;
+            }
+          }
+        }
+      }
+      .controlSection {
+        display: flex;
+        padding-top: 50px;
+        width: 50%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width: $breakpoint-xl) {
+          width: 80%;
+        }
+        .controlButtons {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 30px;
+          padding-bottom: 25%;
+          @media screen and (max-width: $breakpoint-xl) {
+            padding-bottom: 10%;
+          }
+          .switch {
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #7d7a92;
+            border-radius: 30px;
+            color: #4e00a1;
+            font-size: 32px;
+            font-weight: 700;
+            @media screen and (max-width: $breakpoint-xl) {
+              font-size: 24px;
+              width: 100%;
+            }
+            .selected {
+              display: flex;
+              justify-content: center;
+              width: 50%;
+              height: 100%;
+              background-color: #bebebe;
+              border-radius: 30px;
+              padding-top: 10px;
+              padding-bottom: 10px;
+            }
+            .notSelected {
+              display: flex;
+              justify-content: center;
+              width: 50%;
+              height: 100%;
+              border-radius: 30px;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              background-color: transparent;
+            }
+          }
+          .selectSection {
+            width: 80%;
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            @media screen and (max-width: $breakpoint-xl) {
+              font-size: 20px;
+              width: 100%;
+            }
+            .selectedName {
+              display: flex;
+              width: 100%;
+              justify-content: center;
+              background-color: #bebebe;
+              border-radius: 30px;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              color: #4e00a1;
+            }
+            .selectedNameOpen {
+              display: flex;
+              width: 100%;
+              justify-content: center;
+              background-color: #7d7a92;
+              border-top-right-radius: 30px;
+              border-top-left-radius: 30px;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              color: #4e00a1;
+            }
+            .dropdown {
+              width: 100%;
+              position: absolute;
+              margin-top: 50px;
+              z-index: 10;
+              border-bottom-left-radius: 30px;
+              border-bottom-right-radius: 30px;
+              overflow: hidden;
+              @media screen and (max-width: $breakpoint-xl) {
+                margin-top: 45px;
+              }
+              .selectItem {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                background-color: #bebebe;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: #4e00a1;
+              }
+              .selectItem:hover {
+                background-color: #7d7a92;
+              }
+            }
+          }
+        }
+        .claimSection {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          .yieldText {
+            display: flex;
+            flex-direction: row;
+            font-size: 35px;
+            font-weight: 500;
+            @media screen and (max-width: $breakpoint-xl) {
+              font-size: 30px;
+            }
+            .textGreen {
+              color: #7dde92;
+              padding-left: 5px;
+            }
+          }
+          .claimButton {
+            color: #4e00a1;
+            padding: 10px;
+            width: 40%;
+            border-width: 1px;
+            border-radius: 5px;
+            background-color: #ffc906;
+            font-size: 30px;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}
